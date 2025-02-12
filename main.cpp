@@ -16,8 +16,9 @@ int main() {
   int playerTwoWidth{10};
   int playerTwoX{700};
   int playerTwoY{250};
+  int playerTwoSpeed{5};
 
-  //Random ball moviment 
+  //Random ball movement 
   int directionX = (GetRandomValue(0, 1) == 0) ? -1 : 1;
   int directionY = (GetRandomValue(0, 1) == 0) ? -1 : 1;
 
@@ -52,6 +53,14 @@ int main() {
 
       if (IsKeyDown(KEY_S) && playerOneY < windowHeight - 100) {
         playerOneY += 10;
+      }
+
+      if (ballPosition.y > playerTwoY + playerTwoHeight / 2 && playerTwoY < windowHeight - 100) {
+         playerTwoY += playerTwoSpeed;
+      }
+
+      if (ballPosition.y < playerTwoY + playerTwoHeight / 2 && playerTwoY > 0) {
+        playerTwoY -= playerTwoSpeed;
       }
 
       EndDrawing();
