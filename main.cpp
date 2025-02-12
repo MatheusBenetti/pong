@@ -8,13 +8,22 @@ int main() {
   //Player
   int playerOneHeight{100};
   int playerOneWidth{10};
-  int playerOneX{10};
+  int playerOneX{100};
   int playerOneY{250};
 
-  //Ball
+  //Player2
+  int playerTwoHeight{100};
+  int playerTwoWidth{10};
+  int playerTwoX{700};
+  int playerTwoY{250};
+
+  //Random ball moviment 
+  int directionX = (GetRandomValue(0, 1) == 0) ? -1 : 1;
+  int directionY = (GetRandomValue(0, 1) == 0) ? -1 : 1;
+
   float ballRadius{3.0f};
   Vector2 ballPosition{windowWidth / 2.0f, windowHeight / 2.0f};
-  Vector2 ballSpeed{4.0f, 4.0f};
+  Vector2 ballSpeed{4.0f * directionX, 4.0f * directionY};
   
   SetTargetFPS(60);
 
@@ -23,6 +32,8 @@ int main() {
       ClearBackground(BLACK);
       
       DrawRectangle(playerOneX, playerOneY, playerOneWidth, playerOneHeight, WHITE);
+      DrawRectangle(playerTwoX, playerTwoY, playerTwoWidth, playerTwoHeight, WHITE);
+      DrawCircleV(ballPosition, ballRadius, WHITE);
 
       ballPosition.x += ballSpeed.x;
       ballPosition.y += ballSpeed.y;
@@ -34,8 +45,6 @@ int main() {
       if (ballPosition.y - ballRadius <= 0 || ballPosition.y + ballRadius >= windowHeight) {
         ballSpeed.y *= -1;
       }
-
-      DrawCircleV(ballPosition, ballRadius, WHITE);
 
       if (IsKeyDown(KEY_W) && playerOneY > 0) {
         playerOneY -= 10;
