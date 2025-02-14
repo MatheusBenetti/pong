@@ -1,9 +1,9 @@
 #include "../include/ball.h"
 #include <raylib.h>
 
-Ball::Ball(float startX, float startY, float speedX, float speedY, float radius) {
+Ball::Ball(float startX, float startY, float speedX, float speedY, float speedMultiplier, float radius) {
   position = {startX, startY};
-  speed = {speedX, speedY};
+  speed = {speedX * speedMultiplier, speedY * speedMultiplier};
   this->radius = radius;
 }
 

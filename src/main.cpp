@@ -43,10 +43,12 @@ int main() {
         bool isAI = (menu.mode == PLAYER_VS_AI);
         int aiDifficulty = menu.aiDifficulty;
 
+        float ballSpeedMultiplier = 1.0f + (aiDifficulty - 1) * 0.3f;
+
         Player playerOne(20, windowHeight / 2 - 50, 10, 100, 5);
         Player* playerTwo = nullptr;
         AI* aiPlayer = nullptr;
-        Ball ball(windowWidth / 2, windowHeight / 2, 4.0f, 4.0f, 5.0f);
+        Ball ball(windowWidth / 2, windowHeight / 2, 4.0f, 4.0f, ballSpeedMultiplier, 5.0f);
 
         if (isAI) {
             aiPlayer = new AI(windowWidth - 30, windowHeight / 2 - 50, 10, 100, aiDifficulty);

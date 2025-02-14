@@ -9,7 +9,7 @@ class Ball {
     Vector2 speed;
     float radius;
 
-    Ball(float startX, float startY, float speedX, float speedY, float radius);
+    Ball(float startX, float startY, float speedX, float speedY, float speedMultiplier, float radius);
 
     void Update();
     void Draw();
