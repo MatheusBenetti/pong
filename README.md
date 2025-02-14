@@ -81,7 +81,7 @@ g++ src/main.cpp src/player.cpp src/ai.cpp src/ball.cpp src/menu.cpp src/score.c
 
 ## 🏗️ Project Structure
 ```
-/pong-game/
+/pong/
 │── /src/               # Source files
 │   │── main.cpp        # Game loop
 │   │── player.cpp      # Player class
