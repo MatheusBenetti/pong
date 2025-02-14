@@ -7,8 +7,8 @@ AI::AI(float x, float y, float width, float height, int difficulty) {
 
     switch (difficulty) {
       case 1: speed = 3.0f; break;
-      case 2: speed = 5.0f; break;
-      case 3: speed = 7.0f; break;
+      case 2: speed = 4.3f; break;
+      case 3: speed = 6.0f; break;
       default: speed = 5.0f; break;
     }
 }
